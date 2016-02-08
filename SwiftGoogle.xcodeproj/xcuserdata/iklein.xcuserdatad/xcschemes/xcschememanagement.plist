@@ -4,7 +4,7 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>BMSGoogleAuthentuication.xcscheme</key>
+		<key>SwiftGoogle.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>0</integer>
@@ -12,7 +12,7 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>FD16550B1C6887B300932B82</key>
+		<key>FD4913031C60E7FD00A8E235</key>
 		<dict>
 			<key>primary</key>
 			<true/>

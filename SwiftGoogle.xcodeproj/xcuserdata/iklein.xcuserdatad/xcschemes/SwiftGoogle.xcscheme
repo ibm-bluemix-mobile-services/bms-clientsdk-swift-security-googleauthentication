@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "FD16550B1C6887B300932B82"
-               BuildableName = "BMSGoogleAuthentuication.framework"
-               BlueprintName = "BMSGoogleAuthentuication"
-               ReferencedContainer = "container:BMSGoogleAuthentuication.xcodeproj">
+               BlueprintIdentifier = "FD4913031C60E7FD00A8E235"
+               BuildableName = "SwiftGoogle.app"
+               BlueprintName = "SwiftGoogle"
+               ReferencedContainer = "container:SwiftGoogle.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -29,6 +29,15 @@
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
       </Testables>
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "FD4913031C60E7FD00A8E235"
+            BuildableName = "SwiftGoogle.app"
+            BlueprintName = "SwiftGoogle"
+            ReferencedContainer = "container:SwiftGoogle.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </TestAction>
@@ -42,15 +51,16 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
-      <MacroExpansion>
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "FD16550B1C6887B300932B82"
-            BuildableName = "BMSGoogleAuthentuication.framework"
-            BlueprintName = "BMSGoogleAuthentuication"
-            ReferencedContainer = "container:BMSGoogleAuthentuication.xcodeproj">
+            BlueprintIdentifier = "FD4913031C60E7FD00A8E235"
+            BuildableName = "SwiftGoogle.app"
+            BlueprintName = "SwiftGoogle"
+            ReferencedContainer = "container:SwiftGoogle.xcodeproj">
          </BuildableReference>
-      </MacroExpansion>
+      </BuildableProductRunnable>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
@@ -60,15 +70,16 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
-      <MacroExpansion>
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "FD16550B1C6887B300932B82"
-            BuildableName = "BMSGoogleAuthentuication.framework"
-            BlueprintName = "BMSGoogleAuthentuication"
-            ReferencedContainer = "container:BMSGoogleAuthentuication.xcodeproj">
+            BlueprintIdentifier = "FD4913031C60E7FD00A8E235"
+            BuildableName = "SwiftGoogle.app"
+            BlueprintName = "SwiftGoogle"
+            ReferencedContainer = "container:SwiftGoogle.xcodeproj">
          </BuildableReference>
-      </MacroExpansion>
+      </BuildableProductRunnable>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">
