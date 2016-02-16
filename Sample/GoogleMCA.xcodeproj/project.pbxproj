@@ -13,8 +13,8 @@
 		FDB120271C71DCAF00E43D45 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FDB120251C71DCAF00E43D45 /* Main.storyboard */; };
 		FDB120291C71DCAF00E43D45 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FDB120281C71DCAF00E43D45 /* Assets.xcassets */; };
 		FDB1202C1C71DCAF00E43D45 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FDB1202A1C71DCAF00E43D45 /* LaunchScreen.storyboard */; };
-		FDB1203C1C71DD8300E43D45 /* GoogleAuthenticationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB1203B1C71DD8300E43D45 /* GoogleAuthenticationManager.swift */; };
 		FDB1203E1C71DE5800E43D45 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FDB1203D1C71DE5800E43D45 /* GoogleService-Info.plist */; };
+		FDB120411C722A4C00E43D45 /* GoogleAuthenticationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB120401C722A4C00E43D45 /* GoogleAuthenticationManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,8 +29,8 @@
 		FDB1202B1C71DCAF00E43D45 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FDB1202D1C71DCAF00E43D45 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FDB120331C71DD3500E43D45 /* GoogleMCA-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GoogleMCA-Bridging-Header.h"; sourceTree = "<group>"; };
-		FDB1203B1C71DD8300E43D45 /* GoogleAuthenticationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoogleAuthenticationManager.swift; sourceTree = "<group>"; };
 		FDB1203D1C71DE5800E43D45 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		FDB120401C722A4C00E43D45 /* GoogleAuthenticationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoogleAuthenticationManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,7 +84,7 @@
 		FDB120201C71DCAF00E43D45 /* GoogleMCA */ = {
 			isa = PBXGroup;
 			children = (
-				FDB1203A1C71DD8300E43D45 /* Source */,
+				FDB1203F1C722A4C00E43D45 /* Source */,
 				FDB120211C71DCAF00E43D45 /* AppDelegate.swift */,
 				FDB1203D1C71DE5800E43D45 /* GoogleService-Info.plist */,
 				FDB120231C71DCAF00E43D45 /* ViewController.swift */,
@@ -96,13 +96,13 @@
 			path = GoogleMCA;
 			sourceTree = "<group>";
 		};
-		FDB1203A1C71DD8300E43D45 /* Source */ = {
+		FDB1203F1C722A4C00E43D45 /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				FDB1203B1C71DD8300E43D45 /* GoogleAuthenticationManager.swift */,
+				FDB120401C722A4C00E43D45 /* GoogleAuthenticationManager.swift */,
 			);
 			name = Source;
-			path = ../Source;
+			path = ../../Source;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -228,7 +228,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FDB1203C1C71DD8300E43D45 /* GoogleAuthenticationManager.swift in Sources */,
+				FDB120411C722A4C00E43D45 /* GoogleAuthenticationManager.swift in Sources */,
 				FDB120241C71DCAF00E43D45 /* ViewController.swift in Sources */,
 				FDB120221C71DCAF00E43D45 /* AppDelegate.swift in Sources */,
 			);

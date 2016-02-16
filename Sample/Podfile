@@ -6,9 +6,9 @@ use_frameworks!
 target 'GoogleMCA' do
 pod 'Google/SignIn'
 #pod 'BMSSecurity'
-pod 'BMSCore', :git => 'https://github.com/ibm-bluemix-mobile-services/bms-clientsdk-swift-core.git', :branch => 'mca_team_dev'
-pod 'BMSSecurity', :git => 'https://github.com/ibm-bluemix-mobile-services/bms-clientsdk-swift-security.git', :branch => 'mca_team_dev'
+#pod 'BMSCore', :git => 'https://github.com/ibm-bluemix-mobile-services/bms-clientsdk-swift-core.git', :branch => 'mca_team_dev'
+#pod 'BMSSecurity', :git => 'https://github.com/ibm-bluemix-mobile-services/bms-clientsdk-swift-security.git', :branch => 'mca_team_dev'
 
 #pod 'BMSCore'
-#pod 'BMSSecurity', :git => 'https://github.com/ibm-bluemix-mobile-services/bms-clientsdk-swift-security.git', :branch => 'development'
+pod 'BMSSecurity'
 end

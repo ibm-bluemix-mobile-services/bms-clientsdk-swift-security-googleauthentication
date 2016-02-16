@@ -22,11 +22,13 @@ public class GoogleAuthenticationManager : NSObject, AuthenticationDelegate, GID
     
     private override init() {
         super.init()
-        var configureError: NSError?
-        GGLContext.sharedInstance().configureWithError(&configureError)
-        if (configureError != nil) {
-            print("We have an error! \(configureError)")
-        }
+//        var configureError: NSError?
+//        GGLContext.sharedInstance().configureWithError(&configureError)
+//        if (configureError != nil) {
+//            print("We have an error! \(configureError)")
+//        }
+        
+        GIDSignIn.sharedInstance().clientID = "129267688709-74504hp4r1g93ar23mcspg6vlmehvtcu.apps.googleusercontent.com"
         
         GIDSignIn.sharedInstance().delegate = self
         GIDSignIn.sharedInstance().uiDelegate = self
