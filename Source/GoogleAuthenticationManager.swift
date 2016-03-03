@@ -17,18 +17,16 @@ public class GoogleAuthenticationManager : NSObject, AuthenticationDelegate, GID
     
     public var localVC : UIViewController?
     private var authContext: AuthenticationContext?
-
+    
     public static let sharedInstance:GoogleAuthenticationManager = GoogleAuthenticationManager()
     
     private override init() {
         super.init()
-//        var configureError: NSError?
-//        GGLContext.sharedInstance().configureWithError(&configureError)
-//        if (configureError != nil) {
-//            print("We have an error! \(configureError)")
-//        }
-        
-        GIDSignIn.sharedInstance().clientID = "129267688709-74504hp4r1g93ar23mcspg6vlmehvtcu.apps.googleusercontent.com"
+        var configureError: NSError?
+        GGLContext.sharedInstance().configureWithError(&configureError)
+        if (configureError != nil) {
+            print("We have an error! \(configureError)")
+        }
         
         GIDSignIn.sharedInstance().delegate = self
         GIDSignIn.sharedInstance().uiDelegate = self
@@ -81,9 +79,9 @@ public class GoogleAuthenticationManager : NSObject, AuthenticationDelegate, GID
     public func signIn(signIn: GIDSignIn!, didDisconnectWithUser user: GIDGoogleUser!, withError error: NSError!) {
         // Perform any operations when the user disconnects from app here.
         // ...
-//        print ("Got disconnected")
+        //        print ("Got disconnected")
     }
-
+    
     public func handleApplicationOpenUrl(openURL url: NSURL, sourceApplication: String?, annotation: AnyObject) -> Bool {
         return GIDSignIn.sharedInstance().handleURL(url, sourceApplication: sourceApplication, annotation: annotation)
     }
@@ -106,12 +104,23 @@ public class GoogleAuthenticationManager : NSObject, AuthenticationDelegate, GID
     // Present a view that prompts the user to sign in with Google
     @objc
     public func signIn(signIn: GIDSignIn!, presentViewController viewController: UIViewController!) {
-         localVC!.presentViewController(viewController, animated: true, completion: nil)
+        if var topController = UIApplication.sharedApplication().keyWindow?.rootViewController where self.localVC == nil {
+            while let presentedViewController = topController.presentedViewController {
+                topController = presentedViewController
+            }
+            
+            // topController should now be your topmost view controller
+            self.localVC = topController
+        }
+        
+        localVC!.presentViewController(viewController, animated: true, completion: nil)
     }
     
     // Dismiss the "Sign in with Google" view
     @objc
     public func signIn(signIn: GIDSignIn!, dismissViewController viewController: UIViewController!) {
         localVC!.dismissViewControllerAnimated(true, completion: nil)
+        localVC = nil
     }
-  }
+}
+
