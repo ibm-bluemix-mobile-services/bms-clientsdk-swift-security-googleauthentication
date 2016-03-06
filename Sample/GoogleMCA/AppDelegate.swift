@@ -19,18 +19,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
      IMPORTANT: Don't forget that for the app to work you must copy the google-info file
      and the following parameters
      ***/
-    private static let backendURL = "https://ilantestswiftnew.stage1.mybluemix.net"//"{ENTER YOUR BACKANDURL}"
-    private static let backendGUID = "92b0ca84-65c7-475f-9cff-66f661b2eef0"//"{ENTER YOUR GUID}"
-    public static let customResourceURL = "\(backendURL)/protectedResource"//"{ENTER THE PATH TO YOUR PROTECTED RESOURCE" // any protected resource
+    private static let backendURL = "{ENTER YOUR BACKANDURL}"
+    private static let backendGUID = "{ENTER YOUR GUID}"
+    internal static let customResourceURL = "{ENTER THE PATH TO YOUR PROTECTED RESOURCE (e.g. /protectedResource)" // any protected resource
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+                
+        BMSClient.sharedInstance.initializeWithBluemixAppRoute(AppDelegate.backendURL, bluemixAppGUID: AppDelegate.backendGUID, bluemixRegion: "your region, choose from BMSClient.REGION_XXX or add your own")
         
-//        BMSClient.sharedInstance.initializeWithBluemixAppRoute(AppDelegate.backendURL, bluemixAppGUID: AppDelegate.backendGUID, bluemixRegionSuffix: BMSClient.REGION_US_SOUTH)
-        
-        BMSClient.sharedInstance.initializeWithBluemixAppRoute(AppDelegate.backendURL, bluemixAppGUID: AppDelegate.backendGUID, bluemixRegionSuffix: "stage1-dev.ng.bluemix.net")
-        
+        //This is NOT neccessary, just helper code to be able to view traffic as HTTP
         //setting default protocol so that wireshark can look at all of the messages
-        BMSClient.defaultProtocol = BMSClient.HTTP_SCHEME
+        MCAAuthorizationManager.defaultProtocol = MCAAuthorizationManager.HTTP_SCHEME
         
         GoogleAuthenticationManager.sharedInstance.register()
         return true
