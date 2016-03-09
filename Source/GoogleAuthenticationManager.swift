@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import BMSCore
 import BMSSecurity
 
 public class GoogleAuthenticationManager : NSObject, AuthenticationDelegate, GIDSignInDelegate, GIDSignInUIDelegate{
@@ -17,6 +18,7 @@ public class GoogleAuthenticationManager : NSObject, AuthenticationDelegate, GID
     
     public var localVC : UIViewController?
     private var authContext: AuthenticationContext?
+    static let logger = Logger.getLoggerForName("bmssdk.security.GoogleAuthenticationManager")
     
     public static let sharedInstance:GoogleAuthenticationManager = GoogleAuthenticationManager()
     
@@ -51,6 +53,7 @@ public class GoogleAuthenticationManager : NSObject, AuthenticationDelegate, GID
     
     public func onAuthenticationSuccess(info : AnyObject?){
         authContext = nil
+        GoogleAuthenticationManager.logger.debug("onAuthenticationSuccess info = \(info)")
     }
     
     public func onAuthenticationFailure(info : AnyObject?){
