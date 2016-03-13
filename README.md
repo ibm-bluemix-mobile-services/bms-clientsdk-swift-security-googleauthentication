@@ -6,13 +6,13 @@ This is the Google security component of the Swift SDK for IBM Bluemix Mobile Se
 https://console.ng.bluemix.net/solutions/mobilefirst
 
 ## Requirements
-* iOS 8.0+
+* iOS 8.0 or later
 * Xcode 7
 
 
 ## Installation
 The Bluemix Mobile Services Google authentication Swift SDK is available via [Cocoapods](http://cocoapods.org/).
-To install, add the `BMSGoogleAuthentication` pod to your `Podfile`.
+To install, add the `BMSGoogleAuthentication` pod to your Podfile.
 
 ##### iOS
 ```ruby
@@ -24,13 +24,13 @@ target 'MyApp' do
 end
 ```
 
-After doing so, the pod's sources will be added to your workspace. Copy the **GoogleAuthenticationManager.swift** file from the BMSGoogleAuthentication pod's source folder to you app folder.
+After you update your Podfile, the pod's sources are added to your workspace. Copy the `GoogleAuthenticationManager.swift` file from the `BMSGoogleAuthentication` pod's source folder to your app folder.
 
-Then you need to create a bridging header and add to it the following line:
+Then you need to create a bridging header and add the following line to it:
 ```Swift
 #import <Google/SignIn.h>
 ```
-After doing so add your "REVERSED_CLIENT_ID" (located in the .plist file supplied by Google's developer console) and your "Bundle Identifier" as URL Types in your project.
+After doing so add your "REVERSED_CLIENT_ID" (located in the `.plist` file you get from the Google developer console) and your "Bundle Identifier" as URL Types in your project.
 
 ## Getting started
 
@@ -40,19 +40,20 @@ import BMSCore
 import BMSSecurity
 import FBSDKLoginKit
 ```
+<!--- EK: Is FBSDKLoginKit necessary for Google authentication? --->
 
 Connectivity and interaction between your mobile app and the Bluemix services depends on the application ID and application route that are associated with Bluemix application.
 
-The BMSClient API is the entry point for interacting with the SDK. You must invoke the
+The BMSClient API is the entry point for interacting with the SDK. You must invoke the following API before any other API calls:
+
 ```
 initializeWithBluemixAppRoute(bluemixAppRoute: String?, bluemixAppGUID: String?, bluemixRegion: String)
 ```
 
-method before any other API calls.</br>
-
-BMSClient provides information about the current SDK level and access to service SDKs. This method is usually in the application delegate of your mobile app.
+The BMSClient API provides information about the current SDK level and access to service SDKs. This method is usually in the application delegate of your mobile app.
 
 An example of initializing the MobileFirst Platform for iOS SDK follows:
+<!--- EK: Should this be "Bluemix Mobile Services SDK"? No mention of MobileFirst until here, so it's confusing. --->
 
 Initialize SDK with IBM Bluemix application route, ID and the region where your Bluemix application is hosted.
 ```Swift
