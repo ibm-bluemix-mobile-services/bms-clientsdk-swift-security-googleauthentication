@@ -64,13 +64,8 @@ public class GoogleAuthenticationManager : NSObject, AuthenticationDelegate, GID
     public func signIn(signIn: GIDSignIn!, didSignInForUser user: GIDGoogleUser!, withError error: NSError!) {
         if (error == nil) {
             let idToken = user.authentication.idToken // Safe to send to the server
-            
-            do {
-                if let unwrappedAuthContext = authContext {
-                    try unwrappedAuthContext.submitAuthenticationChallengeAnswer([GoogleAuthenticationManager.ID_TOKEN_KEY: idToken])
-                }
-            } catch (let errorException){
-                authContext?.submitAuthenticationFailure(["error" : "\(errorException)"])
+            if let unwrappedAuthContext = authContext {
+                unwrappedAuthContext.submitAuthenticationChallengeAnswer([GoogleAuthenticationManager.ID_TOKEN_KEY: idToken])
             }
         } else {
             authContext?.submitAuthenticationFailure(nil)

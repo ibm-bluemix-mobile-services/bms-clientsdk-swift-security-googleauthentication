@@ -22,7 +22,7 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
     @IBAction func loginToGoogle(sender: AnyObject) {
         let callBack:MfpCompletionHandler = {(response: Response?, error: NSError?) in
             var ans:String = "";
@@ -31,16 +31,12 @@ class ViewController: UIViewController {
             } else {
                 ans="ERROR , error=\(error)"
             }
-            print (ans)
             dispatch_async(dispatch_get_main_queue(), {
                 self.answerTextView.text = ans
             })
 
         }
-
-        print("URL =  \(AppDelegate.customResourceURL)")
-        let request = Request(url: AppDelegate.customResourceURL, method: HttpMethod.GET)
-        
+        let request = Request(url: AppDelegate.resourceURL, method: HttpMethod.GET)
         request.sendWithCompletionHandler(callBack)
     }
 }

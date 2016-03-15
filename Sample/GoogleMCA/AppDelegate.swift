@@ -10,27 +10,23 @@ import UIKit
 import BMSCore
 import BMSSecurity
 
+///In order for the app to work you need to do the following things: 
+///1. In this file : Enter your Bluemix's app data (Url, GUID and region) and your app's protected resource's path
+///2. Download the .plist file supplied by Google's developer console (GoogleService-Info.plist) and add it to this project
+///3. In info.plist file: Enter your "REVERSED_CLIENT_ID" from the .plist file downloaded from Google's developer console
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-    /***
-     IMPORTANT: Don't forget that for the app to work you must copy the google-info file
-     and the following parameters
-     ***/
-    private static let backendURL = "{ENTER YOUR BACKANDURL}"
-    private static let backendGUID = "{ENTER YOUR GUID}"
-    internal static let customResourceURL = "{ENTER THE PATH TO YOUR PROTECTED RESOURCE (e.g. /protectedResource)" // any protected resource
-    
+    private let backendURL = "{ENTER YOUR BACKANDURL}"
+    private let backendGUID = "{ENTER YOUR GUID}"
+    internal static let resourceURL = "{ENTER THE PATH TO YOUR PROTECTED RESOURCE (e.g. /protectedResource)" // any protected resource
+
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
                 
-        BMSClient.sharedInstance.initializeWithBluemixAppRoute(AppDelegate.backendURL, bluemixAppGUID: AppDelegate.backendGUID, bluemixRegion: "your region, choose from BMSClient.REGION_XXX or add your own")
-        
-        //This is NOT neccessary, just helper code to be able to view traffic as HTTP
-        //setting default protocol so that wireshark can look at all of the messages
-        MCAAuthorizationManager.defaultProtocol = MCAAuthorizationManager.HTTP_SCHEME
-        
+        BMSClient.sharedInstance.initializeWithBluemixAppRoute(backendURL, bluemixAppGUID: backendGUID, bluemixRegion: "your region, choose from BMSClient.REGION_XXX or add your own")
         GoogleAuthenticationManager.sharedInstance.register()
         return true
     }
