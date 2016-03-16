@@ -38,10 +38,10 @@ public class GoogleAuthenticationManager : NSObject, AuthenticationDelegate, GID
         try! MCAAuthorizationManager.sharedInstance.registerAuthenticationDelegate(self, realm: GoogleAuthenticationManager.GOOGLE_REALM)
     }
     
-    public func onAuthenticationChallengeReceived(authContext : AuthenticationContext, challenge : AnyObject?) {
+    public func onAuthenticationChallengeReceived(authContext : AuthenticationContext, challenge : AnyObject) {
         self.authContext = authContext
         
-        guard let appID = challenge?[GoogleAuthenticationManager.GOOGLE_APP_ID_KEY] as? String where appID == GIDSignIn.sharedInstance().clientID
+        guard let appID = challenge[GoogleAuthenticationManager.GOOGLE_APP_ID_KEY] as? String where appID == GIDSignIn.sharedInstance().clientID
             else{
                 authContext.submitAuthenticationFailure([NSLocalizedDescriptionKey:"App Id from server doesn't match the one defined in the .plist file"])
                 return
