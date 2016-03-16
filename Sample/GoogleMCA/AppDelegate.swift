@@ -27,6 +27,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
                 
         BMSClient.sharedInstance.initializeWithBluemixAppRoute(backendURL, bluemixAppGUID: backendGUID, bluemixRegion: "your region, choose from BMSClient.REGION_XXX or add your own")
+        BMSClient.sharedInstance.authorizationManager = MCAAuthorizationManager.sharedInstance
         GoogleAuthenticationManager.sharedInstance.register()
         return true
     }
