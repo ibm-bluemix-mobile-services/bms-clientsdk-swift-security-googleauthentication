@@ -18,7 +18,7 @@ public class GoogleAuthenticationManager : NSObject, AuthenticationDelegate, GID
     
     public var localVC : UIViewController?
     private var authContext: AuthenticationContext?
-    static let logger = Logger.getLoggerForName("bmssdk.security.GoogleAuthenticationManager")
+    static let logger = Logger.loggerForName("bmssdk.security.GoogleAuthenticationManager")
     
     public static let sharedInstance:GoogleAuthenticationManager = GoogleAuthenticationManager()
     
