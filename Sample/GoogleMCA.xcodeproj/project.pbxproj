@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		EF6A64451C96BB2A00018948 /* GoogleAuthenticationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF6A64441C96BB2A00018948 /* GoogleAuthenticationManager.swift */; };
 		FACD353CA802F590BECFE737 /* Pods_GoogleMCA.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E87147FCE1177F24A64F169 /* Pods_GoogleMCA.framework */; };
 		FDB120221C71DCAF00E43D45 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB120211C71DCAF00E43D45 /* AppDelegate.swift */; };
 		FDB120241C71DCAF00E43D45 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB120231C71DCAF00E43D45 /* ViewController.swift */; };
@@ -20,7 +19,6 @@
 		0473A9E4E17C03F0E02CA2DA /* Pods-GoogleMCA.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GoogleMCA.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GoogleMCA/Pods-GoogleMCA.debug.xcconfig"; sourceTree = "<group>"; };
 		35F8836C311B2534AAD72B8A /* Pods-GoogleMCA.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GoogleMCA.release.xcconfig"; path = "Pods/Target Support Files/Pods-GoogleMCA/Pods-GoogleMCA.release.xcconfig"; sourceTree = "<group>"; };
 		5E87147FCE1177F24A64F169 /* Pods_GoogleMCA.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GoogleMCA.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		EF6A64441C96BB2A00018948 /* GoogleAuthenticationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoogleAuthenticationManager.swift; sourceTree = "<group>"; };
 		FDB1201E1C71DCAF00E43D45 /* GoogleMCA.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GoogleMCA.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDB120211C71DCAF00E43D45 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FDB120231C71DCAF00E43D45 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -82,7 +80,6 @@
 		FDB120201C71DCAF00E43D45 /* GoogleMCA */ = {
 			isa = PBXGroup;
 			children = (
-				EF6A64441C96BB2A00018948 /* GoogleAuthenticationManager.swift */,
 				FDB120211C71DCAF00E43D45 /* AppDelegate.swift */,
 				FDB120231C71DCAF00E43D45 /* ViewController.swift */,
 				FDB120251C71DCAF00E43D45 /* Main.storyboard */,
@@ -215,7 +212,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EF6A64451C96BB2A00018948 /* GoogleAuthenticationManager.swift in Sources */,
 				FDB120241C71DCAF00E43D45 /* ViewController.swift in Sources */,
 				FDB120221C71DCAF00E43D45 /* AppDelegate.swift in Sources */,
 			);
