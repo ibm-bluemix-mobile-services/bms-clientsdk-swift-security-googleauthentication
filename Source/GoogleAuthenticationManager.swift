@@ -62,10 +62,10 @@ public class GoogleAuthenticationManager : NSObject, AuthenticationDelegate, GID
     }
     
     
-    public func logout(){
+    public func logout(completionHandler: BmsCompletionHandler?){
         GIDSignIn.sharedInstance().disconnect()
         GIDSignIn.sharedInstance().signOut()
-        MCAAuthorizationManager.sharedInstance.logout(nil)
+        MCAAuthorizationManager.sharedInstance.logout(completionHandler)
     }
     
     
