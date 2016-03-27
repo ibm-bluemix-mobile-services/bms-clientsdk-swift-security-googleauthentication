@@ -9,6 +9,7 @@
 import Foundation
 import BMSCore
 import BMSSecurity
+import BMSAnalyticsSpec
 
 public class GoogleAuthenticationManager : NSObject, AuthenticationDelegate, GIDSignInDelegate, GIDSignInUIDelegate{
     
@@ -35,7 +36,7 @@ public class GoogleAuthenticationManager : NSObject, AuthenticationDelegate, GID
     }
     
     public func register() {
-        try! MCAAuthorizationManager.sharedInstance.registerAuthenticationDelegate(self, realm: GoogleAuthenticationManager.GOOGLE_REALM)
+        MCAAuthorizationManager.sharedInstance.registerAuthenticationDelegate(self, realm: GoogleAuthenticationManager.GOOGLE_REALM)
     }
     
     public func onAuthenticationChallengeReceived(authContext : AuthenticationContext, challenge : AnyObject) {
@@ -59,6 +60,14 @@ public class GoogleAuthenticationManager : NSObject, AuthenticationDelegate, GID
     public func onAuthenticationFailure(info : AnyObject?){
         authContext = nil
     }
+    
+    
+    public func logout(){
+        GIDSignIn.sharedInstance().disconnect()
+        GIDSignIn.sharedInstance().signOut()
+        MCAAuthorizationManager.sharedInstance.logout(nil)
+    }
+    
     
     @objc
     public func signIn(signIn: GIDSignIn!, didSignInForUser user: GIDGoogleUser!, withError error: NSError!) {
