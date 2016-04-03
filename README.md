@@ -81,14 +81,14 @@ The following code sends the openurl requests to the Google Authentication Manag
     }
 ```
 
-In order to logout the current logged in user, you can use the following code:
+In order to logout the current logged in user, you must call the following code:
 ```Swift
 GoogleAuthenticationManager.logout(<callBack>)
 ```
+When the user tries to log in again, they are prompted to authorize Mobile Client Access to use Google for authentication purposes. At that point, the user can click the user name in the upper-right corner of the screen to select and login with another user.
 
-To switch users, you must call this code. When the user tries to log in again, they are prompted to authorize Mobile Client Access to use Google for authentication purposes. At that point, the user can click the user name in the upper-right corner of the screen to select and login with another user.
 =======================
-Copyright 2015 IBM Corp.
+Copyright 2016 IBM Corp.
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
