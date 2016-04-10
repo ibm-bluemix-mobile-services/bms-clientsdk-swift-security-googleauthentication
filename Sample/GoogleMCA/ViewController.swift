@@ -24,7 +24,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func loginToGoogle(sender: AnyObject) {
-        let callBack:MfpCompletionHandler = {(response: Response?, error: NSError?) in
+        let callBack:BmsCompletionHandler = {(response: Response?, error: NSError?) in
             var ans:String = "";
             if error == nil {
                 ans="response:\(response?.responseText), no error"

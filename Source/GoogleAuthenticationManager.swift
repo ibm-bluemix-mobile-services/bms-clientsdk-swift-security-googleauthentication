@@ -9,7 +9,7 @@
 import Foundation
 import BMSCore
 import BMSSecurity
-import BMSAnalyticsSpec
+import BMSAnalyticsAPI
 
 public class GoogleAuthenticationManager : NSObject, AuthenticationDelegate, GIDSignInDelegate, GIDSignInUIDelegate{
     
@@ -19,7 +19,7 @@ public class GoogleAuthenticationManager : NSObject, AuthenticationDelegate, GID
     
     public var localVC : UIViewController?
     private var authContext: AuthenticationContext?
-    static let logger = Logger.loggerForName("bmssdk.security.GoogleAuthenticationManager")
+    static let logger = Logger.logger(forName: "bmssdk.security.GoogleAuthenticationManager")
     
     public static let sharedInstance:GoogleAuthenticationManager = GoogleAuthenticationManager()
     

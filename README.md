@@ -87,7 +87,11 @@ GoogleAuthenticationManager.logout(<callBack>)
 ```
 When the user tries to log in again, they are prompted to authorize Mobile Client Access to use Google for authentication purposes. At that point, the user can click the user name in the upper-right corner of the screen to select and login with another user.
 
+## Sample app
+You can use 'pod try BMSGoogleAuthentication' to get a sample application. A readme file with details on how to run the sample application is available in the app's folder.
+
 =======================
+
 Copyright 2016 IBM Corp.
 
 Licensed under the Apache License, Version 2.0 (the "License");
