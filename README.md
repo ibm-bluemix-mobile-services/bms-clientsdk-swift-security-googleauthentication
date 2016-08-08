@@ -1,9 +1,7 @@
 IBM Bluemix Mobile Services - Client SDK Swift Security - Google
 ===================================================
 
-This is the Google security component of the Swift SDK for [IBM Bluemix Mobile Services] (https://console.ng.bluemix.net/docs/services/mobile.html)
-
-https://console.ng.bluemix.net/solutions/mobilefirst
+This is the Google security component of the Swift SDK for [IBM Bluemix Mobile Services] (http://www.ibm.com/cloud-computing/bluemix/mobile/).
 
 ## Requirements
 * iOS 8.0 or later
