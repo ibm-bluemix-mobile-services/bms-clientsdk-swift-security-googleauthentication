@@ -160,7 +160,7 @@ public class GoogleAuthenticationManager : NSObject, AuthenticationDelegate, GID
         MCAAuthorizationManager.sharedInstance.registerAuthenticationDelegate(self, realm: GoogleAuthenticationManager.GOOGLE_REALM)
     }
     
-    public func onAuthenticationChallengeReceived(_ authContext : AuthenticationContext, challenge : AnyObject) {
+    public func onAuthenticationChallengeReceived(authContext : AuthenticationContext, challenge : AnyObject) {
         self.authContext = authContext
         
         guard let appID = challenge[GoogleAuthenticationManager.GOOGLE_APP_ID_KEY] as? String where appID == GIDSignIn.sharedInstance().clientID
@@ -173,17 +173,17 @@ public class GoogleAuthenticationManager : NSObject, AuthenticationDelegate, GID
         GIDSignIn.sharedInstance().signIn()
     }
     
-    public func onAuthenticationSuccess(_ info : AnyObject?){
+    public func onAuthenticationSuccess(info : AnyObject?){
         authContext = nil
         GoogleAuthenticationManager.logger.debug("onAuthenticationSuccess info = \(info)")
     }
     
-    public func onAuthenticationFailure(_ info : AnyObject?){
+    public func onAuthenticationFailure(info : AnyObject?){
         authContext = nil
     }
     
     
-    public func logout(_ completionHandler: BmsCompletionHandler?){
+    public func logout(completionHandler: BmsCompletionHandler?){
         GIDSignIn.sharedInstance().disconnect()
         GIDSignIn.sharedInstance().signOut()
         MCAAuthorizationManager.sharedInstance.logout(completionHandler)
@@ -191,7 +191,7 @@ public class GoogleAuthenticationManager : NSObject, AuthenticationDelegate, GID
     
     
     @objc
-    public func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: NSError!) {
+    public func signIn(signIn: GIDSignIn!, didSignInForUser user: GIDGoogleUser!, withError error: NSError!) {
         if (error == nil) {
             let idToken = user.authentication.idToken // Safe to send to the server
             if let unwrappedAuthContext = authContext {
@@ -204,19 +204,19 @@ public class GoogleAuthenticationManager : NSObject, AuthenticationDelegate, GID
     }
     
     @objc
-    public func sign(_ signIn: GIDSignIn!, didDisconnectWith user: GIDGoogleUser!, withError error: NSError!) {
+    public func signIn(signIn: GIDSignIn!, didDisconnectWithUser user: GIDGoogleUser!, withError error: NSError!) {
         // Perform any operations when the user disconnects from app here.
         // ...
         //        print ("Got disconnected")
     }
     
-    public func handleApplicationOpenUrl(openURL url: URL, sourceApplication: String?, annotation: AnyObject) -> Bool {
-        return GIDSignIn.sharedInstance().handle(url, sourceApplication: sourceApplication, annotation: annotation)
+    public func handleApplicationOpenUrl(openURL url: NSURL, sourceApplication: String?, annotation: AnyObject) -> Bool {
+        return GIDSignIn.sharedInstance().handleURL(url, sourceApplication: sourceApplication, annotation: annotation)
     }
     
     @available(iOS 9.0, *)
-    public func handleApplicationOpenUrl(openURL url: URL, options: [String : AnyObject]) -> Bool {
-        return GIDSignIn.sharedInstance().handle(url,
+    public func handleApplicationOpenUrl(openURL url: NSURL, options: [String : AnyObject]) -> Bool {
+        return GIDSignIn.sharedInstance().handleURL(url,
                                                     sourceApplication: options[UIApplicationOpenURLOptionsSourceApplicationKey] as? String,
                                                     annotation: options[UIApplicationOpenURLOptionsAnnotationKey] as? String)
     }
@@ -225,14 +225,14 @@ public class GoogleAuthenticationManager : NSObject, AuthenticationDelegate, GID
     // pressed the Sign In button
     
     @objc
-    public func sign(inWillDispatch signIn: GIDSignIn!, error: NSError!) {
+    public func signInWillDispatch(signIn: GIDSignIn!, error: NSError!) {
         // no needed work for now
     }
     
     // Present a view that prompts the user to sign in with Google
     @objc
-    public func sign(_ signIn: GIDSignIn!, present viewController: UIViewController!) {
-        if var topController = UIApplication.shared.keyWindow?.rootViewController where self.localVC == nil {
+    public func signIn(signIn: GIDSignIn!, presentViewController viewController: UIViewController!) {
+        if var topController = UIApplication.sharedApplication().keyWindow?.rootViewController where self.localVC == nil {
             while let presentedViewController = topController.presentedViewController {
                 topController = presentedViewController
             }
@@ -241,13 +241,13 @@ public class GoogleAuthenticationManager : NSObject, AuthenticationDelegate, GID
             self.localVC = topController
         }
         
-        localVC!.present(viewController, animated: true, completion: nil)
+        localVC!.presentViewController(viewController, animated: true, completion: nil)
     }
     
     // Dismiss the "Sign in with Google" view
     @objc
-    public func sign(_ signIn: GIDSignIn!, dismiss viewController: UIViewController!) {
-        localVC!.dismiss(animated: true, completion: nil)
+    public func signIn(signIn: GIDSignIn!, dismissViewController viewController: UIViewController!) {
+        localVC!.dismissViewControllerAnimated(true, completion: nil)
         localVC = nil
     }
 }
