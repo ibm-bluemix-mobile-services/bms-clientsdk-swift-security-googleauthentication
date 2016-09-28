@@ -90,13 +90,13 @@ public class GoogleAuthenticationManager : NSObject, AuthenticationDelegate, GID
         //        print ("Got disconnected")
     }
     
-    public func handleApplicationOpenUrl(openURL url: NSURL, sourceApplication: String?, annotation: Any) -> Bool {
-        return GIDSignIn.sharedInstance().handle(url as URL!, sourceApplication: sourceApplication, annotation: annotation)
+    public func handleApplicationOpenUrl(openURL url: URL, sourceApplication: String?, annotation: Any) -> Bool {
+        return GIDSignIn.sharedInstance().handle(url, sourceApplication: sourceApplication, annotation: annotation)
     }
     
     @available(iOS 9.0, *)
-    public func handleApplicationOpenUrl(openURL url: NSURL, options: [UIApplicationOpenURLOptionsKey : Any]) -> Bool {
-        return GIDSignIn.sharedInstance().handle(url as URL!,
+    public func handleApplicationOpenUrl(openURL url: URL, options: [UIApplicationOpenURLOptionsKey : Any]) -> Bool {
+        return GIDSignIn.sharedInstance().handle(url,
                                                  sourceApplication: options[UIApplicationOpenURLOptionsKey.sourceApplication] as? String,
                                                  annotation: options[UIApplicationOpenURLOptionsKey.annotation] as? String)
     }
