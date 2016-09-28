@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
     s.name         = "BMSGoogleAuthentication"
-    s.version      = '1.0.1'
+    s.version      = '2.0.0'
     s.ios.deployment_target = '8.0'
     s.platform     = :ios, '8.0'
     s.requires_arc = true
@@ -14,7 +14,7 @@ Pod::Spec.new do |s|
 
     s.documentation_url = 'https://www.ng.bluemix.net/docs/#services/mobileaccess/index.html'
     s.dependency 'Google/SignIn'
-    s.dependency 'BMSSecurity', '~> 1.0'
+    s.dependency 'BMSSecurity', '~> 2.0'
     s.resource = 'Source/GoogleAuthenticationManager.swift'
     #s.source_files = 'Source/*.swift'
 
