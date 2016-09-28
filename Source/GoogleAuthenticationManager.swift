@@ -20,7 +20,7 @@ public class GoogleAuthenticationManager : NSObject, AuthenticationDelegate, GID
     
     public var localVC : UIViewController?
     private var authContext: AuthenticationContext?
-    static let logger = Logger.logger(forName: "bmssdk.security.GoogleAuthenticationManager")
+    static let logger = Logger.logger(name: "bmssdk.security.GoogleAuthenticationManager")
     
     public static let sharedInstance:GoogleAuthenticationManager = GoogleAuthenticationManager()
     
@@ -45,7 +45,7 @@ public class GoogleAuthenticationManager : NSObject, AuthenticationDelegate, GID
         
         guard let appID = challenge[GoogleAuthenticationManager.GOOGLE_APP_ID_KEY] as? String, appID == GIDSignIn.sharedInstance().clientID
             else{
-                authContext.submitAuthenticationFailure([NSLocalizedDescriptionKey:"App Id from server doesn't match the one defined in the .plist file"])
+                authContext.submitAuthenticationFailure([NSLocalizedDescriptionKey:"App Id from server doesn't match the one defined in the .plist file" as AnyObject])
                 return
                 
         }
@@ -63,7 +63,7 @@ public class GoogleAuthenticationManager : NSObject, AuthenticationDelegate, GID
     }
     
     
-    public func logout(completionHandler: BmsCompletionHandler?){
+    public func logout(completionHandler: BMSCompletionHandler?){
         GIDSignIn.sharedInstance().disconnect()
         GIDSignIn.sharedInstance().signOut()
         MCAAuthorizationManager.sharedInstance.logout(completionHandler)
@@ -75,7 +75,7 @@ public class GoogleAuthenticationManager : NSObject, AuthenticationDelegate, GID
         if (error == nil) {
             let idToken = user.authentication.idToken // Safe to send to the server
             if let unwrappedAuthContext = authContext {
-                unwrappedAuthContext.submitAuthenticationChallengeAnswer([GoogleAuthenticationManager.ID_TOKEN_KEY: idToken!])
+                unwrappedAuthContext.submitAuthenticationChallengeAnswer([GoogleAuthenticationManager.ID_TOKEN_KEY: idToken! as AnyObject])
             }
         } else {
             authContext?.submitAuthenticationFailure(nil)
@@ -90,15 +90,15 @@ public class GoogleAuthenticationManager : NSObject, AuthenticationDelegate, GID
         //        print ("Got disconnected")
     }
     
-    public func handleApplicationOpenUrl(openURL url: NSURL, sourceApplication: String?, annotation: AnyObject) -> Bool {
+    public func handleApplicationOpenUrl(openURL url: NSURL, sourceApplication: String?, annotation: Any) -> Bool {
         return GIDSignIn.sharedInstance().handle(url as URL!, sourceApplication: sourceApplication, annotation: annotation)
     }
     
     @available(iOS 9.0, *)
-    public func handleApplicationOpenUrl(openURL url: NSURL, options: [String : AnyObject]) -> Bool {
+    public func handleApplicationOpenUrl(openURL url: NSURL, options: [UIApplicationOpenURLOptionsKey : Any]) -> Bool {
         return GIDSignIn.sharedInstance().handle(url as URL!,
-            sourceApplication: options[UIApplicationOpenURLOptionsSourceApplicationKey] as? String,
-            annotation: options[UIApplicationOpenURLOptionsAnnotationKey] as? String)
+                                                 sourceApplication: options[UIApplicationOpenURLOptionsKey.sourceApplication] as? String,
+                                                 annotation: options[UIApplicationOpenURLOptionsKey.annotation] as? String)
     }
     
     // Stop the UIActivityIndicatorView animation that was started when the user
@@ -140,7 +140,7 @@ public class GoogleAuthenticationManager : NSObject, AuthenticationDelegate, GID
     
     public var localVC : UIViewController?
     private var authContext: AuthenticationContext?
-    static let logger = Logger.logger(forName: "bmssdk.security.GoogleAuthenticationManager")
+    static let logger = Logger.logger(name: "bmssdk.security.GoogleAuthenticationManager")
     
     public static let sharedInstance:GoogleAuthenticationManager = GoogleAuthenticationManager()
     
@@ -183,7 +183,7 @@ public class GoogleAuthenticationManager : NSObject, AuthenticationDelegate, GID
     }
     
     
-    public func logout(completionHandler: BmsCompletionHandler?){
+    public func logout(completionHandler: BMSCompletionHandler?){
         GIDSignIn.sharedInstance().disconnect()
         GIDSignIn.sharedInstance().signOut()
         MCAAuthorizationManager.sharedInstance.logout(completionHandler)
