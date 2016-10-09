@@ -23,21 +23,21 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func loginToGoogle(sender: AnyObject) {
-        let callBack:BmsCompletionHandler = {(response: Response?, error: NSError?) in
+    @IBAction func loginToGoogle(_ sender: AnyObject) {
+        let callBack:BMSCompletionHandler = {(response: Response?, error: Error?) in
             var ans:String = "";
             if error == nil {
                 ans="response:\(response?.responseText), no error"
             } else {
                 ans="ERROR , error=\(error)"
             }
-            dispatch_async(dispatch_get_main_queue(), {
+            DispatchQueue.main.async {
                 self.answerTextView.text = ans
-            })
+            }
 
         }
         let request = Request(url: AppDelegate.resourceURL, method: HttpMethod.GET)
-        request.sendWithCompletionHandler(callBack)
+        request.send(completionHandler: callBack)
     }
 }
 

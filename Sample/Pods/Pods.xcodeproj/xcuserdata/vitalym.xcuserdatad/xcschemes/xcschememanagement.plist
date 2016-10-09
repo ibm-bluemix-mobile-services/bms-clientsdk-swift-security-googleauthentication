@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>SchemeUserState</key>
+	<dict>
+		<key>BMSAnalyticsAPI.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>BMSCore.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>BMSSecurity.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-GoogleMCA.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>060D779F4F0D4DD050D9E08865879D01</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>22785503CC84464263AF26536DDCA0DA</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>7CE5ED24D6F62A1F103B9499F648E846</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>99B55BA277E5A8747DC03A34ECFE62EE</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+	</dict>
+</dict>
+</plist>
