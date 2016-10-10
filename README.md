@@ -40,20 +40,13 @@ import BMSSecurity
 
 Connectivity and interaction between your mobile app and the Bluemix services depends on the application ID and application route that are associated with Bluemix application.
 
-The BMSClient API is the entry point for interacting with the SDK. You must invoke the following API before any other API calls:
+The BMSClient and MCAAuthorizationManager API are the entry points for interacting with the SDK. You must invoke the following API before any other API calls:
 
 ```
-initializeWithBluemixAppRoute(bluemixAppRoute: String?, bluemixAppGUID: String?, bluemixRegion: String)
+MCAAuthorizationManager.sharedInstance.initialize(tenantId: tenantId, bluemixRegion: regionName)
 ```
 
-The BMSClient API provides information about the current SDK level and access to service SDKs. This method is usually in the application delegate of your mobile app.
-
-An example of initializing the Bluemix Mobile Services Swift SDK follows:
-
-Initialize SDK with IBM Bluemix application route, ID and the region where your Bluemix application is hosted.
-```Swift
-BMSClient.sharedInstance.initializeWithBluemixAppRoute(<app route>, bluemixAppGUID: <app guid>, bluemixRegion: BMSClient.<region>)
-```
+This method is usually called in the application delegate of your mobile app.
 
 You also need to define MCAAuthorizationManager as your authorization manager:
 ```Swift
@@ -67,21 +60,20 @@ GoogleAuthenticationManager.sharedInstance.register()
 
 The following code sends the openurl requests to the Google Authentication Manager and needs to be added to your AppDelegate.swift file:
 ```Swift
-  func application(application: UIApplication,
-        openURL url: NSURL, sourceApplication: String?, annotation: AnyObject) -> Bool {
-            return GoogleAuthenticationManager.sharedInstance.handleApplicationOpenUrl(openURL: url, sourceApplication: sourceApplication, annotation: annotation)
-    }
+func application(_ application: UIApplication,
+                   open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
+      return GoogleAuthenticationManager.sharedInstance.handleApplicationOpenUrl(openURL: url, sourceApplication: sourceApplication, annotation: annotation as AnyObject)
+  }
 
-
-    @available(iOS 9.0, *)
-    func application(app: UIApplication, openURL url: NSURL, options: [String : AnyObject]) -> Bool {
-        return GoogleAuthenticationManager.sharedInstance.handleApplicationOpenUrl(openURL: url, options: options)
-    }
+  @available(iOS 9.0, *)
+  func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any]) -> Bool {
+      return GoogleAuthenticationManager.sharedInstance.handleApplicationOpenUrl(openURL: url, options: options)
+  }
 ```
 
 In order to logout the current logged in user, you must call the following code:
 ```Swift
-GoogleAuthenticationManager.logout(<callBack>)
+GoogleAuthenticationManager.sharedInstance.logout(<callBack>)
 ```
 When the user tries to log in again, they are prompted to authorize Mobile Client Access to use Google for authentication purposes. At that point, the user can click the user name in the upper-right corner of the screen to select and login with another user.
 

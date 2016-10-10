@@ -97,12 +97,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FDB120301C71DCAF00E43D45 /* Build configuration list for PBXNativeTarget "GoogleMCA" */;
 			buildPhases = (
-				BEAC14E6B083E9B4A571DCA7 /* Check Pods Manifest.lock */,
+				BEAC14E6B083E9B4A571DCA7 /* [CP] Check Pods Manifest.lock */,
 				FDB1201A1C71DCAF00E43D45 /* Sources */,
 				FDB1201B1C71DCAF00E43D45 /* Frameworks */,
 				FDB1201C1C71DCAF00E43D45 /* Resources */,
-				05C3BA7E35D6EF6E47C46F8C /* Embed Pods Frameworks */,
-				E56E4DCD3F6E2181F7934274 /* Copy Pods Resources */,
+				05C3BA7E35D6EF6E47C46F8C /* [CP] Embed Pods Frameworks */,
+				E56E4DCD3F6E2181F7934274 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -125,6 +125,7 @@
 				TargetAttributes = {
 					FDB1201D1C71DCAF00E43D45 = {
 						CreatedOnToolsVersion = 7.2.1;
+						LastSwiftMigration = 0800;
 					};
 				};
 			};
@@ -160,14 +161,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		05C3BA7E35D6EF6E47C46F8C /* Embed Pods Frameworks */ = {
+		05C3BA7E35D6EF6E47C46F8C /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Embed Pods Frameworks";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -175,29 +176,29 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GoogleMCA/Pods-GoogleMCA-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		BEAC14E6B083E9B4A571DCA7 /* Check Pods Manifest.lock */ = {
+		BEAC14E6B083E9B4A571DCA7 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		E56E4DCD3F6E2181F7934274 /* Copy Pods Resources */ = {
+		E56E4DCD3F6E2181F7934274 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -332,8 +333,9 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ibm.test.SwiftGoogleTest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "GoogleMCA-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -347,7 +349,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ibm.test.SwiftGoogleTest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "GoogleMCA-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
