@@ -175,7 +175,7 @@ public class GoogleAuthenticationManager : NSObject, AuthenticationDelegate, GID
     
     public func onAuthenticationSuccess(info : AnyObject?){
         authContext = nil
-        GoogleAuthenticationManager.logger.debug("onAuthenticationSuccess info = \(info)")
+        GoogleAuthenticationManager.logger.debug(message: "onAuthenticationSuccess info = \(info)")
     }
     
     public func onAuthenticationFailure(info : AnyObject?){
