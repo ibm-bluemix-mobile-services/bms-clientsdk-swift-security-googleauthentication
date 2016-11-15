@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
     s.name         = "BMSGoogleAuthentication"
-    s.version      = '2.0.2'
+    s.version      = '2.0.3'
     s.ios.deployment_target = '8.0'
     s.platform     = :ios, '8.0'
     s.requires_arc = true
