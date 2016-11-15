@@ -78,7 +78,7 @@ public class GoogleAuthenticationManager : NSObject, AuthenticationDelegate, GID
                 unwrappedAuthContext.submitAuthenticationChallengeAnswer([GoogleAuthenticationManager.ID_TOKEN_KEY: idToken! as AnyObject])
             }
         } else {
-            authContext?.submitAuthenticationFailure(nil)
+            authContext?.submitAuthenticationFailure(["Error": error.localizedDescription as AnyObject])
             print("\(error.localizedDescription)")
         }
     }
