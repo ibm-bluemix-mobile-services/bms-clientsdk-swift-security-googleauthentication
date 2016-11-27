@@ -31,6 +31,9 @@ Copy the `GoogleAuthenticationManager.swift` file from the `BMSGoogleAuthenticat
 #import <Google/SignIn.h>
 ```
 
+### Enable Keychain Sharing
+When using Xcode 8.x, in order to use BMSGoogleAuthentication, you need to enable Keychain Sharing in your app. You can enable this feature in the Capabilities tab of your target.
+
 ### Run the iOS app
 Now you can run the iOS application in your iOS emulator or on a physical device.
 

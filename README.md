@@ -30,6 +30,9 @@ Then you need to create a bridging header and add the following line to it:
 ```
 After doing so add your "REVERSED_CLIENT_ID" (located in the `.plist` file you get from the Google developer console) and your "Bundle Identifier" as URL Types in your project.
 
+### Enable Keychain Sharing
+When using Xcode 8.x, in order to use BMSGoogleAuthentication, you need to enable Keychain Sharing in your app. You can enable this feature in the Capabilities tab of your target.
+
 ## Getting started
 
 In order to use the Bluemix Mobile Services Google Authentication Swift SDK, add the following imports in the class which you want to use it in:
